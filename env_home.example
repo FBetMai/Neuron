@@ -1,0 +1,8 @@
+    
+URLROOT="http://localhost:8000/;"
+SITENAME=Neuron
+
+DBHOST="neuron_db_1"
+DBUSER="user"
+DBPASS="user1234"
+DBNAME="containerdb"

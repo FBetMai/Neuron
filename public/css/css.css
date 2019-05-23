@@ -1,0 +1,256 @@
+.no-padding {
+    padding: 0;
+}
+
+.poster-images {
+    width: 100%;
+    display: block;
+}
+
+@media only screen and (max-width: 2500px) and (min-width: 901px)  {
+    .himgl100{
+        height:100%;
+    }
+
+    .wimgl100{
+        width:100%;
+    }
+
+    .himgl80{
+        height:80%;
+    }
+
+    .wimgl80{
+        width:80%;
+    }
+
+    .himgl60{
+        height:60%;
+    }
+
+    .wimgl60{
+        width:60%;
+    }
+
+    .himgl50{
+        height:50%;
+    }
+
+    .wimgl50{
+        width:50%;
+    }
+    .himgl40{
+        height:40%;
+    }
+
+    .wimgl40{
+        width:40%;
+    }
+
+    .heightsc{
+        height:992px;
+    }
+
+    .poster-card {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 701px)  {
+    .himgm100{
+        height:100%;
+    }
+
+    .wimgm100{
+        width:100%;
+    }
+
+    .himgm80{
+        height:80%;
+    }
+
+    .wimgm80{
+        width:80%;
+    }
+
+    .himgm60{
+        height:60%;
+    }
+
+    .wimgm60{
+        width:60%;
+    }
+
+    .himgm50{
+        height:50%;
+    }
+
+    .wimgm50{
+        width:50%;
+    }
+
+    .himgm40{
+        height:40%;
+    }
+
+    .wimgm40{
+        width:40%;
+    }
+
+    .heightsc{
+        height:576px;
+    }
+
+    .poster-card {
+        display: none;
+    }
+
+    .poster-cardm {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 700px) and (min-width: 300px)  {
+    .himgs100{
+        height:100%;
+    }
+
+    .wimgs100{
+        width:100%;
+    }
+
+    .himgs80{
+        height:80%;
+    }
+
+    .wimgs80{
+        width:80%;
+    }
+
+    .himgs60{
+        height:60%;
+    }
+
+    .wimgs60{
+        width:60%;
+    }
+
+    .himgs55{
+        height:505;
+    }
+
+    .wimgs55{
+        width:55%;
+    }
+
+    .himgs50{
+        height:50%;
+    }
+
+    .wimgs50{
+        width:50%;
+    }
+
+    .himgs40{
+        height:40%;
+    }
+
+    .wimgs40{
+        width:40%;
+    }
+
+    .heightsc{
+        height:990px;
+    }
+
+    .poster-images {
+        display: none;
+    }
+
+    .poster-card {
+        display: none;
+    }
+}
+
+
+.caption div {
+    box-shadow: 0 0 5px #C8C8C8;
+    transition: all 0.3s ease 0s;
+}
+.img-circle {
+    border-radius: 50%;
+}
+.img-circle {
+    border-radius: 0;
+}
+
+.ratio {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 0;
+    padding-bottom: 60%;
+    position: relative;
+    width: 60%;
+}
+.img-circle {
+    border-radius: 60%;
+}
+.img-responsive {
+    display: block;
+    height: auto;
+    max-width: 60%;
+}
+
+
+.widthcust {
+    width: 250px;
+    line-height: 57px;
+}
+
+.heightcust{
+    height:300px;
+}
+
+.main-text {
+    position: absolute;
+    top: 50px;
+    width: 96.66666666666666%;
+    color: #FFF;
+}
+
+.cardcust{
+    max-width:700px;
+    height:250px;
+}
+
+.cardcust1{
+    max-width:700px;
+    height:300px;
+}
+
+.cardcust2{
+    max-width:230px;
+    height:230px;
+}
+
+.cardcust3{
+    max-width:700px;
+    max-height:300px;
+}
+
+#map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .calendar1{
+    widows: 800px;
+    max-height: 300px;
+  }
