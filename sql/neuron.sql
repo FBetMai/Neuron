@@ -9,7 +9,6 @@ PAGENAME VARCHAR(60) NOT NULL,
 PRIMARY KEY (PAGEID)	
 ) AUTO_INCREMENT=1;
 
-
 CREATE TABLE tbl_heading (
 HEADINGID INT(10) NOT NULL AUTO_INCREMENT,
 PAGEID INT(5) NOT NULL,
@@ -24,7 +23,6 @@ TEXTDESCRIPTION VARCHAR(10000) NOT NULL,
 PRIMARY KEY (TEXTID)	
 ) AUTO_INCREMENT=1;
 
-
 CREATE TABLE tbl_media (
 MEDIAID INT(10) NOT NULL AUTO_INCREMENT,
 PAGEID INT(5) NOT NULL,
@@ -33,6 +31,12 @@ MEDIAPATH VARCHAR(5000) NOT NULL,
 PRIMARY KEY (MEDIAID)	
 ) AUTO_INCREMENT=1;
 
+CREATE TABLE tbl_buttons (
+BUTTONID INT(10) NOT NULL AUTO_INCREMENT,
+PAGEID INT(5) NOT NULL,
+BUTTONDESCRIPTION VARCHAR(100) NOT NULL,
+PRIMARY KEY (BUTTONID)	
+) AUTO_INCREMENT=1;
 
 CREATE TABLE tbl_contact (
 CONTACTID INT(10) NOT NULL AUTO_INCREMENT,
@@ -42,7 +46,6 @@ CONTACTDESCRIPTION VARCHAR(5000),
 CONTACTDATE DATE NOT NULL,
 PRIMARY KEY (CONTACTID)	
 ) AUTO_INCREMENT=1;
-
 
 CREATE TABLE tbl_client (
 CLIENTID INT(10) NOT NULL AUTO_INCREMENT,
@@ -58,15 +61,14 @@ CLIENTSUBSCRIBE BOOLEAN NOT NULL,
 PRIMARY KEY (CLIENTID)	
 ) AUTO_INCREMENT=1;
 
-
 CREATE TABLE tbl_testimonial (
 TESTIMONIALID INT (10) NOT NULL AUTO_INCREMENT,
 CLIENTID INT(10) NOT NULL,
-TESTIMONIALDESCRIPTION VARCHAR(5000),
-TESTIMONIALDATE DATE NOT NULL,
+TEXTDESCRIPTION VARCHAR(5000),
+CREATEDDATE DATE NOT NULL,
+APPROVED BOOLEAN DEFAULT 0,
 PRIMARY KEY (TESTIMONIALID)	
 ) AUTO_INCREMENT=1;
-
 
 CREATE TABLE tbl_country (
 COUNTRYID VARCHAR(2) NOT NULL,
@@ -74,33 +76,31 @@ COUNTRYNAME VARCHAR(5000) NOT NULL,
 PRIMARY KEY (COUNTRYID)	
 ) AUTO_INCREMENT=1;
 
-
 CREATE TABLE tbl_subject (
 SUBJECTID INT(3) NOT NULL AUTO_INCREMENT,
 SUBJECTDESCRIPTION VARCHAR(30) NOT NULL,
 PRIMARY KEY (SUBJECTID)	
 ) AUTO_INCREMENT=1;
 
-
 CREATE TABLE tbl_news (
 NEWSID INT(10) NOT NULL AUTO_INCREMENT,
 PAGEID INT(5) NOT NULL,
-NEWSISIMAGE BOOLEAN NOT NULL,
-NEWSMEDIAPATH VARCHAR(5000) NOT NULL,
-NEWSTITLE VARCHAR(250) NOT NULL,
-NEWSSUBTITLE VARCHAR(250) NOT NULL,
-NEWSTEXTDESCRIPTION VARCHAR(500) NOT NULL,
+ISIMAGE BOOLEAN NOT NULL,
+MEDIAPATH VARCHAR(5000) NOT NULL,
+TITLE VARCHAR(250) NOT NULL,
+SUBTITLE VARCHAR(250) NOT NULL,
+TEXTDESCRIPTION VARCHAR(500) NOT NULL,
 PRIMARY KEY (NEWSID)	
 ) AUTO_INCREMENT=1;
 
 CREATE TABLE tbl_about (
 ABOUTID INT(10) NOT NULL AUTO_INCREMENT,
 PAGEID INT(5) NOT NULL,
-ABOUTISIMAGE BOOLEAN NOT NULL,
-ABOUTMEDIAPATH VARCHAR(5000) NOT NULL,
-ABOUTTITLE VARCHAR(250) NOT NULL,
-ABOUTSUBTITLE VARCHAR(250) NOT NULL,
-ABOUTTEXTDESCRIPTION VARCHAR(1000) NOT NULL,
+ISIMAGE BOOLEAN NOT NULL,
+MEDIAPATH VARCHAR(5000) NOT NULL,
+TITLE VARCHAR(250) NOT NULL,
+SUBTITLE VARCHAR(250) NOT NULL,
+TEXTDESCRIPTION VARCHAR(1000) NOT NULL,
 PRIMARY KEY (ABOUTID)	
 ) AUTO_INCREMENT=1;
 
@@ -140,27 +140,28 @@ INSERT INTO tbl_heading (PAGEID, HEADINGDESCRIPTION) VALUES (10, 'Terms and Cond
 /*TEXT TABLE*/
 /*Home TEXT*/
 INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda mollitia ut provident ratione? Saepe aliquid aspernatur ullam nemo nam nostrum, obcaecati, tempora quae velit facilis asperiores modi repellendus fuga quidem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, dolorum. Architecto, sequi? Illo, tenetur vero libero, nobis excepturi, autem quia a earum quibusdam aperiam sit consectetur ut. Porro, quas soluta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorem nesciunt dolorum fugit deserunt officia, suscipit labore magnam, perspiciatis inventore modi alias iure provident ipsam quasi architecto impedit mollitia recusandae. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, dicta tempore. Soluta, doloremque. Illum dicta nisi tempora vitae animi voluptas voluptate officia! Quia voluptatem illum odio, officiis rerum cum provident?');
-/*Services TEXT - Data Architecture*/
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+    /*Services TEXT - Data Architecture*/
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (2, '1st Data Architecture - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (2, '2st Data Architecture - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (2, '3st Data Architecture - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
 INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (2, 'Would you like to learn more about how this technology can benefit your company? Send us an appointement request and we will be pleased to meet you.');
-/*Services TEXT - Big Data*/
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+    /*Services TEXT - Big Data*/
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (3, '1st Big Data - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (3, '2st Big Data  - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (3, '3st Big Data  - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
 INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (3, 'Would you like to learn more about how this technology can benefit your company? Send us an appointement request and we will be pleased to meet you.');
-/*Services TEXT - AI for Business*/
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (4, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (4, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (4, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+    /*Services TEXT - AI for Business*/
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (4, '1st AI for Business - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (4, '2st AI for Business - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (4, '3st AI for Business - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
 INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (4, 'Would you like to learn more about how this technology can benefit your company? Send us an appointement request and we will be pleased to meet you.');
-/*Services TEXT - Solution Integration*/
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (5, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (5, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
-INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (5, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+    /*Services TEXT - Solution Integration*/
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (5, '1st Solution Integration - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (5, '2st Solution Integration  - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (5, '3st Solution Integration  - adipisicing elit. Earum, aut, labore adipisci eius et dignissimos exercitationem, possimus eos harum animi voluptates deleniti modi est quo totam itaque sapiente distinctio suscipit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique perferendis, aperiam nihil rem aspernatur aliquid quae temporibus dignissimos illo voluptate, harum laboriosam. Perferendis maiores sequi soluta quos blanditiis quia dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi incidunt at vero error deleniti accusamus fugiat dolores! Mollitia temporibus in fugit doloribus qui, adipisci, accusamus voluptas distinctio blanditiis quae similique?');
 INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (5, 'Would you like to learn more about how this technology can benefit your company? Send us an appointement request and we will be pleased to meet you.');
-
+/*Testimonials (Page) TEXT*/
+INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (6, 'Have you got some amazing results you would like to share with us? We love to hear success stories from our customers. Get in touch and share your story with us using this form. We look forward to hearing your Neuron story!');
 /*News (Page) TEXT*/
 INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (7, 'Stay up-to-date with the latest news of technology for business. Subscribe to receive our newsletter.');
 /*Contact TEXT*/
@@ -176,57 +177,92 @@ INSERT INTO tbl_text (PAGEID, TEXTDESCRIPTION) VALUES (10, "<p class=\"text-just
 
 /*MEDIA TABLE*/
 /*Home MEDIA*/
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (1, 1, './img/ML3.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (1, 1, './img/ML2.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (1, 1, './img/ML5.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (1, 1, './img/ML6.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (1, 1, '/img/ML3.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (1, 1, '/img/ML2.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (1, 1, '/img/ML5.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (1, 1, '/img/ML6.PNG');
 /*Service - Data Architecture MEDIA*/
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (2, 1, './img/ML3.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (2, 1, './img/ML2.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (2, 1, './img/ML5.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (2, 1, './img/ML6.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (2, 1, './img/ML3a.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (2, 1, '/img/ML3.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (2, 1, '/img/ML2.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (2, 1, '/img/ML5.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (2, 1, '/img/ML6.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (2, 1, '/img/ML3a.jpg');
 /*Service - Big Data MEDIA*/
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (3, 1, './img/ML3.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (3, 1, './img/ML2.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (3, 1, './img/ML5.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (3, 1, './img/ML6.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (3, 1, './img/ML2a.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (3, 1, '/img/ML3.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (3, 1, '/img/ML2.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (3, 1, '/img/ML5.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (3, 1, '/img/ML6.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (3, 1, '/img/ML2a.jpg');
 /*Service - AI for Business MEDIA*/
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (4, 1, './img/ML3.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (4, 1, './img/ML2.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (4, 1, './img/ML5.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (4, 1, './img/ML6.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (4, 1, './img/ML5a.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (4, 1, '/img/ML3.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (4, 1, '/img/ML2.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (4, 1, '/img/ML5.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (4, 1, '/img/ML6.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (4, 1, '/img/ML5a.jpg');
 /*Service - Solutuion Integration MEDIA*/
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (5, 1, './img/ML3.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (5, 1, './img/ML2.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (5, 1, './img/ML5.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (5, 1, './img/ML6.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (5, 1, './img/ML6a.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (5, 1, '/img/ML3.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (5, 1, '/img/ML2.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (5, 1, '/img/ML5.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (5, 1, '/img/ML6.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (5, 1, '/img/ML6a.jpg');
 /*Testimonial MEDIA*/
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, './img/S2.jpg');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, './img/S2.jpg');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, './img/S2.jpg');
 INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, '/img/S2.jpg');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, './img/S2.jpg');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, './img/S2.jpg');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, '/img/S2.jpg');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, '/img/S2.jpg');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, '/img/S2.jpg');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, '/img/S2.jpg');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, '/img/S2.jpg');
 
 /*Contact*/
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, './img/ML3.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, './img/ML2.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, './img/ML5.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, './img/ML6.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, './img/contact3.jpg');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, '/img/ML3.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, '/img/ML2.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, '/img/ML5.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, '/img/ML6.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, '/img/contact3.jpg');
 
 /*Policy*/
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (10, 1, './img/ML3.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (10, 1, './img/ML2.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (10, 1, './img/ML5.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (10, 1, './img/ML6.PNG');
-INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (10, 1, './img/ML7.png,');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (10, 1, '/img/ML3.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (10, 1, '/img/ML2.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (10, 1, '/img/ML5.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (10, 1, '/img/ML6.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (10, 1, '/img/ML7.png');
 
-/*Country Table*/
+/*BUTTONS TABLE*/
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (1, 'Data Architecture');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (1, 'Big Data');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (1, 'AI for Business');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (1, 'Solution Integration');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (2, 'Data Architecture');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (2, 'Big Data');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (2, 'AI for Business');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (2, 'Solution Integration');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (3, 'Data Architecture');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (3, 'Big Data');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (3, 'AI for Business');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (3, 'Solution Integration');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (4, 'Data Architecture');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (4, 'Big Data');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (4, 'AI for Business');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (4, 'Solution Integration');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (5, 'Data Architecture');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (5, 'Big Data');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (5, 'AI for Business');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (5, 'Solution Integration');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (6, 'Leave a Testimonial');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (7, 'Subscribe');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (8, 'Data Architecture');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (8, 'Big Data');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (8, 'AI for Business');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (8, 'Solution Integration');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (9, 'Contact');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (10, 'Data Architecture');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (10, 'Big Data');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (10, 'AI for Business');
+INSERT INTO tbl_buttons (PAGEID, BUTTONDESCRIPTION) VALUES (10, 'Solution Integration');
+
+
+
+/*CONTACT - Country Table*/
 INSERT INTO tbl_country (COUNTRYID, COUNTRYNAME) values ('AF','Afghanistan');
 INSERT INTO tbl_country (COUNTRYID, COUNTRYNAME) values ('AX','Aland Islands');
 INSERT INTO tbl_country (COUNTRYID, COUNTRYNAME) values ('AL','Albania');
@@ -477,50 +513,49 @@ INSERT INTO tbl_country (COUNTRYID, COUNTRYNAME) values ('YE','Yemen');
 INSERT INTO tbl_country (COUNTRYID, COUNTRYNAME) values ('ZM','Zambia');
 INSERT INTO tbl_country (COUNTRYID, COUNTRYNAME) values ('ZW','Zimbabwe');
 
-/*Subject Table*/
+/*CONTACT - Subject Table*/
 INSERT INTO tbl_subject (SUBJECTDESCRIPTION) VALUES ('General information');
 INSERT INTO tbl_subject (SUBJECTDESCRIPTION) VALUES ('Appointment request');
 INSERT INTO tbl_subject (SUBJECTDESCRIPTION) VALUES ('Feedback');
 
 
+
 /*News TABLE*/
     /*News - News 1*/
-INSERT INTO tbl_news (PAGEID, NEWSISIMAGE, NEWSMEDIAPATH, NEWSTITLE, NEWSSUBTITLE, NEWSTEXTDESCRIPTION) VALUES (7, 0, 'https://www.youtube.com/embed/vORRyZQDR8Y', 'Globalization 4.0', 'World Economic Forum, 16/11/2018', 'Globalization is being redefined politically, economically and ecologically at a moment when advanced technologies have ushered in a 4th Industrial Revolution at a speed and scale unparalleled in human history.');
+INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 0, 'https://www.youtube.com/embed/vORRyZQDR8Y', 'Globalization 4.0', 'World Economic Forum, 16/11/2018', 'Globalization is being redefined politically, economically and ecologically at a moment when advanced technologies have ushered in a 4th Industrial Revolution at a speed and scale unparalleled in human history.');
     /*News - News 2*/
-INSERT INTO tbl_news (PAGEID, NEWSISIMAGE, NEWSMEDIAPATH, NEWSTITLE, NEWSSUBTITLE, NEWSTEXTDESCRIPTION) VALUES (7, 0, 'https://www.youtube.com/embed/kpW9JcWxKq0', 'The 4th Industrial Revolution', 'World Economic Forum, 18/07/2016', 'It is characterized by a range of new technologies that are fusing the physical, digital and biological worlds, impacting all disciplines, economies and industries, and even challenging ideas  what it means to be human.');
+INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 0, 'https://www.youtube.com/embed/kpW9JcWxKq0', 'The 4th Industrial Revolution', 'World Economic Forum, 18/07/2016', 'It is characterized by a range of new technologies that are fusing the physical, digital and biological worlds, impacting all disciplines, economies and industries, and even challenging ideas  what it means to be human.');
     /*News - News 3*/
-INSERT INTO tbl_news (PAGEID, NEWSISIMAGE, NEWSMEDIAPATH, NEWSTITLE, NEWSSUBTITLE, NEWSTEXTDESCRIPTION) VALUES (7, 0, 'https://www.youtube.com/embed/YOEFogy9VSQ', 'Applications of AI in Business', 'Growth Tribe, 19/09/2018', 'Artificial Intelligence is a marketers secret weapon right now and most big opportunities have not yet been tapped. Now is the time to get ahead of the game. Predictive analysis to forecast products and Customer Lifetime Value.');
+INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 0, 'https://www.youtube.com/embed/YOEFogy9VSQ', 'Applications of AI in Business', 'Growth Tribe, 19/09/2018', 'Artificial Intelligence is a marketers secret weapon right now and most big opportunities have not yet been tapped. Now is the time to get ahead of the game. Predictive analysis to forecast products and Customer Lifetime Value.');
     /*News - News 4*/
-INSERT INTO tbl_news (PAGEID, NEWSISIMAGE, NEWSMEDIAPATH, NEWSTITLE, NEWSSUBTITLE, NEWSTEXTDESCRIPTION) VALUES (7, 1, 'https://www.forbes.com/sites/bernardmarr/2019/03/21/why-every-company-needs-an-artificial-intelligence-ai-strategy-for-2019/#5111ab4e68ea', 'Why Every Company Needs An Artificial Intelligence (AI) Strategy For 2019', 'Forbes, 21/03/2019', 'Why Every Company Needs An Artificial Intelligence (AI) Strategy For 2019. AI is ultimately going to transform every business, in every industry.');
+INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 1, 'https://www.forbes.com/sites/bernardmarr/2019/03/21/why-every-company-needs-an-artificial-intelligence-ai-strategy-for-2019/#5111ab4e68ea', 'Why Every Company Needs An Artificial Intelligence (AI) Strategy For 2019', 'Forbes, 21/03/2019', 'Why Every Company Needs An Artificial Intelligence (AI) Strategy For 2019. AI is ultimately going to transform every business, in every industry.');
     /*News - News 5*/
-INSERT INTO tbl_news (PAGEID, NEWSISIMAGE, NEWSMEDIAPATH, NEWSTITLE, NEWSSUBTITLE, NEWSTEXTDESCRIPTION) VALUES (7, 1, 'https://www.analyticsinsight.net/the-impact-of-big-data-on-different-industries/', 'The Impact of Big Data on Different Industries', 'Analytics Insight, 24/03/2019', 'Healthcare; Education; Telecom; Banking and Finance; Consumer Goods Industry.');
+INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 1, 'https://www.analyticsinsight.net/the-impact-of-big-data-on-different-industries/', 'The Impact of Big Data on Different Industries', 'Analytics Insight, 24/03/2019', 'Healthcare; Education; Telecom; Banking and Finance; Consumer Goods Industry.');
     /*News - News 6*/
-INSERT INTO tbl_news (PAGEID, NEWSISIMAGE, NEWSMEDIAPATH, NEWSTITLE, NEWSSUBTITLE, NEWSTEXTDESCRIPTION) VALUES (7, 0, 'https://www.youtube.com/embed/eo4oQZdJAaQ', 'Big Data Business Impact', 'Oracle Big Data, 25/10/2015', 'Big Data allows businesses to do big things. Oracle provides leadership and solutions to business ready to maximize big data.');
+INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 0, 'https://www.youtube.com/embed/eo4oQZdJAaQ', 'Big Data Business Impact', 'Oracle Big Data, 25/10/2015', 'Big Data allows businesses to do big things. Oracle provides leadership and solutions to business ready to maximize big data.');
 
 
 /*About TABLE*/
     /*About - Staff 1*/
-INSERT INTO tbl_about (PAGEID, ABOUTISIMAGE, ABOUTMEDIAPATH, ABOUTTITLE, ABOUTSUBTITLE, ABOUTTEXTDESCRIPTION) VALUES (9, 1, './img/ME1.jpg', 'Name', 'Job Position', 'Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
+INSERT INTO tbl_about (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (9, 1, '/img/ME1.jpg', 'Name 1', 'Job Position 1', 'Person 1 - maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
     /*About - Staff 2*/
-INSERT INTO tbl_about (PAGEID, ABOUTISIMAGE, ABOUTMEDIAPATH, ABOUTTITLE, ABOUTSUBTITLE, ABOUTTEXTDESCRIPTION) VALUES (9, 1, './img/ME1.jpg', 'Name', 'Job Position', 'Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
+INSERT INTO tbl_about (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (9, 1, '/img/ME1.jpg', 'Name 2', 'Job Position 2', 'Person 2 - maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
     /*About - Staff 3*/
-INSERT INTO tbl_about (PAGEID, ABOUTISIMAGE, ABOUTMEDIAPATH, ABOUTTITLE, ABOUTSUBTITLE, ABOUTTEXTDESCRIPTION) VALUES (9, 1, './img/ME1.jpg', 'Name', 'Job Position', 'Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
+INSERT INTO tbl_about (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (9, 1, '/img/ME1.jpg', 'Name 3', 'Job Position 3', 'Person 3 -  maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
     /*About - Staff 4*/
-INSERT INTO tbl_about (PAGEID, ABOUTISIMAGE, ABOUTMEDIAPATH, ABOUTTITLE, ABOUTSUBTITLE, ABOUTTEXTDESCRIPTION) VALUES (9, 1, './img/ME1.jpg', 'Name', 'Job Position', 'Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
+INSERT INTO tbl_about (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (9, 1, '/img/ME1.jpg', 'Name 4', 'Job Position 4', 'Person 4 -  maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
     /*About - Staff 5*/
-INSERT INTO tbl_about (PAGEID, ABOUTISIMAGE, ABOUTMEDIAPATH, ABOUTTITLE, ABOUTSUBTITLE, ABOUTTEXTDESCRIPTION) VALUES (9, 1, './img/ME1.jpg', 'Name', 'Job Position', 'Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
+INSERT INTO tbl_about (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (9, 1, '/img/ME1.jpg', 'Name 5', 'Job Position 5', 'Person 5 -  maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
     /*About - Staff 6*/
-INSERT INTO tbl_about (PAGEID, ABOUTISIMAGE, ABOUTMEDIAPATH, ABOUTTITLE, ABOUTSUBTITLE, ABOUTTEXTDESCRIPTION) VALUES (9, 1, './img/ME1.jpg', 'Name', 'Job Position', 'Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
+INSERT INTO tbl_about (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (9, 1, '/img/ME1.jpg', 'Name 6', 'Job Position 6', 'Person 6 -  maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime.');
 
+
+/*Testimonial Table*/
+/*INSERT INTO tbl_testimonial (CLIENTID, TEXTDESCRIPTION, CREATEDDATE) VALUES ('', '', NOW());   *******atencao para a approved*/
 
 /*Contact Table*/
 /*INSERT INTO tbl_contact (CLIENTID, SUBJECTID, CONTACTDESCRIPTION, CONTACTDATE) VALUES ("", "", "", NOW());
 
 /*Client Table*/
-/*INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTEMAIL, CLIENTWEBSITE, CLIENTADRESS, COUNTRYID, CLIENTPHONENUMBER, CLIENTNEW, CLIENTSUBSCRIBE) VALUES ("", "", "", "", "", "", "", "", "");
+/*INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTEMAIL, CLIENTWEBSITE, CLIENTADRESS, COUNTRYID, CLIENTPHONENUMBER, CLIENTNEW, CLIENTSUBSCRIBE) VALUES (" ", " ", " ", " ", " ", " ", " ", " ", " ");
 
-/*Testimonial Table*/
-/*INSERT INTO tbl_testimonial (CLIENTID, TESTIMONIALDESCRIPTION, TESTIMONIALDATE) VALUES ("", "", NOW());*/
-
-
-use containerdb;

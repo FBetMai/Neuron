@@ -17,10 +17,10 @@
                             </div>
                             <div class="col-lg col-md col-sm text-center">
                                 <div class="wimgs80 mx-auto">
-                                    <a type="submit" style="border-style:none;"><img src="./img/LinkedIn.PNG" alt="Facebook"></a>
-                                    <a type="submit" style="border-style:none;"><img src="./img/Faceb.PNG" alt="Facebook"></a>
-                                    <a type="submit" style="border-style:none;"><img src="./img/Twit.PNG" alt="Facebook"></a>
-                                    <a type="submit" style="border-style:none;"><img src="./img/Yout.PNG" alt="Facebook"></a>
+                                    <a type="submit" style="border-style:none;"><img src="/img/LinkedIn.PNG" alt="Facebook"></a>
+                                    <a type="submit" style="border-style:none;"><img src="/img/Faceb.PNG" alt="Facebook"></a>
+                                    <a type="submit" style="border-style:none;"><img src="/img/Twit.PNG" alt="Facebook"></a>
+                                    <a type="submit" style="border-style:none;"><img src="/img/Yout.PNG" alt="Facebook"></a>
                                 </div>
                             </div>
                         </div>                            

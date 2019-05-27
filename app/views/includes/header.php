@@ -13,32 +13,7 @@
 
 
  <!-- Page Name (aba) -->
-    <title>
-            <?php 
-            if($id==0)
-            {
-                echo $data['aba'][0];
-            }elseif($id==1)
-            {
-                echo $data['aba'][1];
-            }elseif($id==2)
-            {
-                echo $data['aba'][2];
-            }elseif($id==3)
-            {
-                echo $data['aba'][3];
-            }elseif($id==4)
-            {
-                echo $data['aba'][4];
-            }elseif($id==5)
-            {
-                echo $data['aba'][5];
-            }else
-            {
-                echo $data['aba'][6];
-            }
-            ?>
-        </title>
+    <title>Neuron</title>
 
 
 
@@ -52,11 +27,11 @@
 <!--Navbar space-->
 <div class="row d-flex flex-row">
     <div class="col-lg col-md col-sm">            
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
     <!--Logo column-->                   
             <div class="container">   
                 <div class="col-lg col-md col-sm">                                            
-                    <a class= "navbar-brand font-weight-bold text-success" href="index.html"><h3>Neuron<img src="./img/Brain.png" alt="Brain" height="30" width="35"></h3></a>
+                    <a class= "navbar-brand font-weight-bold text-success" href="<?php echo URLROOT . 'pages/index/1'; ?>"><h3>Neuron<img src="/img/Brain.png" alt="Brain" height="30" width="35"></h3></a>
                     <h6 class= "text-success font-weight-bold">Data & Machine Learning</h6>                           
                 </div>                                  
     <!--Colapse buttons-->
@@ -68,39 +43,39 @@
                     <div class="collapse navbar-collapse" id="navbarColor03">                    
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="<?php echo URLROOT . 'pages/index/1'; ?>">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="services.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Services
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="servicedata.html">Data Architecture</a>
+                                <a class="dropdown-item" href="<?php echo URLROOT . 'pages/index2/2'; ?>">Data Architecture</a>
                             <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="servicebig.html">Big Data</a>
+                                <a class="dropdown-item" href="<?php echo URLROOT . 'pages/index2/3'; ?>">Big Data</a>
                             <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="servicebusiness.html">AI for Business</a>
+                                <a class="dropdown-item" href="<?php echo URLROOT . 'pages/index2/4'; ?>">AI for Business</a>
                             <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="servicesolution.html">Solution Integration</a>
+                                <a class="dropdown-item" href="<?php echo URLROOT . 'pages/index2/5'; ?>">Solution Integration</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="testimonials.html">Testimonials</a>
+                            <a class="nav-link" href="<?php echo URLROOT . 'pages/index3/6'; ?>">Testimonials</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="news.html">News</a>
+                            <a class="nav-link" href="<?php echo URLROOT . 'pages/index3/7'; ?>">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="<?php echo URLROOT . 'pages/index4/8'; ?>">Contact</a>
                         </li>
-                        <li class="nav-item dropdown active">
+                        <li class="nav-item dropdown">
                                <a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                    About
                                </a>
                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                       <a class="dropdown-item" href="about.html">About us</a>
+                                       <a class="dropdown-item" href="<?php echo URLROOT . 'pages/index3/9'; ?>">About us</a>
                                    <div class="dropdown-divider"></div>
-                                       <a class="dropdown-item" href="Policy.html">Policy</a>
+                                       <a class="dropdown-item" href="<?php echo URLROOT . 'pages/index2a/10'; ?>">Policy</a>
                                    </div>
                            </li>
                        </ul>

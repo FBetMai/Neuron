@@ -19,7 +19,7 @@
                 <div class="card" style="width: auto;">
                     <a href="<?php echo $data['links'][$i]; ?>"><img  class="img-fluid poster-images" src=<?php echo $data['media'][$i]['MEDIAPATH']; ?> alt="Card image"></a>
                         <div class="card">
-                            <a href="<?php echo $data['links'][$i]; ?>" class="btn btn-outline-success btn-lg btn-btn-block" role="button"><?php echo $data['buttons'][$i]; ?></a>
+                            <a href="<?php echo $data['links'][$i]; ?>" class="btn btn-outline-success btn-lg btn-btn-block" role="button"><?php echo $data['buttons'][$i]['BUTTONDESCRIPTION']; ?></a>
                         </div>
                 </div>
             </div>

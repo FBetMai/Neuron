@@ -1,5 +1,5 @@
     
-URLROOT="http://localhost:8000/;"
+URLROOT="http://localhost:8000/"
 SITENAME=Neuron
 
 DBHOST="neuron_db_1"

@@ -36,22 +36,40 @@
           return $this->db->resultSet();
         }
 
+        //Select buttons from tbl_buttons (neuron Database)
+        public function getbuttons($id) {
+          $this->db->query('SELECT * FROM tbl_buttons WHERE PAGEID = :id');
+          $this->db->bind(":id", $id);
+          return $this->db->resultSet();
+        }
+
+        //Select Temp3 info from tbl_testimonial (neuron Database)
+        public function getTestimonial($id) {
+          $this->db->query('SELECT * FROM tbl_testimonial WHERE PAGEID = :id');
+          $this->db->bind(":id", $id);
+          return $this->db->resultSet();
+        }
+
+        //Select Temp3 info from tbl_news (neuron Database)
+        public function getNews($id) {
+          $this->db->query('SELECT * FROM tbl_news WHERE PAGEID = :id');
+          $this->db->bind(":id", $id);
+          return $this->db->resultSet();
+        }
+
+        //Select Temp3 info from tbl_about (neuron Database)
+        public function getAbout($id) {
+          $this->db->query('SELECT * FROM tbl_about WHERE PAGEID = :id');
+          $this->db->bind(":id", $id);
+          return $this->db->resultSet();
+        }
+
     //HARD CODED
 
         //Get Nav Links to Home page (Index)
         public function getNavLinks() {
-          return ["servicedata.html", "servicebig.html", "servicebusiness.html", "servicesolution.hmtl"];
-      }
-    
-        //Services Button texts
-        public function getbuttons() {
-          return ["Data Architecture", "Big Data", "AI for Business", "Solution Integration"];
-      }
-
-        //Aba
-        public function getAba() {
-          return ["Neuron", "Neuron Services", "Neuron Testimonials", "Neuron News", "Neuron Contact", "Neuron About"];
-      }
-    
+          return ["../index2/2", "../index2/3", "../index2/4", "../index2/5"];
+      } 
+         
   }
 ?>
