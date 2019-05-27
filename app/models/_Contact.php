@@ -9,6 +9,51 @@
         $this->db = new Database;
     }
 
+    //INSERT QUERIES
+
+        //ADD CONTACT to tbl_contact (neuron Database)       
+        public function addContact($clientID, $subjectID, $contactDesc, $contatcDate) {
+            $this->db->query('INSERT INTO tbl_contact (CLIENTID, SUBJECTID, CONTACTDESCRIPTION, CONTACTDATE) VALUES (:clientID, :subjectID,:contactDesc, :contatcDate)');
+            $this->db->bind(':clientID', $clientID);
+            $this->db->bind(':subjectID', $subjectID);
+            $this->db->bind(':contactDesc', $contactDesc);
+            $this->db->bind(':contatcDate', $contatcDate);
+            if($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+
+    //SELECT QUERIES
+
+        //SHOW CONTACT from tbl_contact (neuron Database)
+        public function showAllContact() {
+            $this->db->query('SELECT * FROM tbl_contact');
+            return $this->db->resultSet();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //ADD CLIENT to tbl_client (neuron Database)       
         public function addClient($clientName, $companyName, $clientEmail, $clientWebsite, $clientAdress, $countryID, $clientPhoneNumber, $clientNew, $clientSubscribe) {
             $this->db->query('INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTEMAIL, CLIENTWEBSITE, CLIENTADRESS, COUNTRYID, CLIENTPHONENUMBER, CLIENTNEW, CLIENTSUBSCRIBE) VALUES (:clientName, :companyName, :clientEmail, :clientWebsite, :clientAdress, :countryID, :clientPhoneNumber, :clientNew, :clientSubscribe)');
@@ -29,19 +74,7 @@
         }
 
 
-        //ADD CONTACT to tbl_contact (neuron Database)       
-        public function addContact($clientID, $subjectID, $contactDesc, $contatcDate) {
-            $this->db->query('INSERT INTO tbl_contact (CLIENTID, SUBJECTID, CONTACTDESCRIPTION, CONTACTDATE) VALUES (:clientID, :subjectID,:contactDesc, :contatcDate)');
-            $this->db->bind(':clientID', $clientID);
-            $this->db->bind(':subjectID', $subjectID);
-            $this->db->bind(':contactDesc', $contactDesc);
-            $this->db->bind(':contatcDate', $contatcDate);
-            if($this->db->execute()) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+
 
         //ADD TESTIMONIAL to tbl_testimonial (neuron Database)       
         public function addTestimonial($clientID, $textDescription, $createdDate, $approved) {
@@ -60,12 +93,14 @@
 
 
 
-        //SELECT from DATABASE
 
-        //SHOW CONTACT from tbl_contact (neuron Database)
-        public function showAllContact() {
-            $this->db->query('SELECT * FROM tbl_contact');
-            return $this->db->resultSet();
-        }
+
+
+
+
+
+
+
+
 
 }

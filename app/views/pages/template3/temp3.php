@@ -1,16 +1,6 @@
 <?php include(APPROOT . "/views/includes/header.php"); ?>
 
 
-
-<!-- ****** QUESTIONS -->
-    <!--How to interchange the MODALS ?????? -->
-
-
-
-
-
-
-
 <!--Top Empty line-->      
 <div class="container">
         <p></p>
@@ -37,18 +27,39 @@
         <!--Button Contact link OR Testimonal / Subscribe Modals-->
            <div class="col-lg-2 col-md-4 col-sm-4">
                 <?php
-                
+                //Contact link
                 if($data['buttons'][0]['PAGEID'] == 9):?>
                     <a href="<?php echo URLROOT . 'pages/index4/8'; ?>"><button type="button" class="btn btn-success btn-lg ">Contact</button></a>
-                
+                <!--Button to activate Modals depending on page ID-->
                 <?php else:?>
                     <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=<?php echo '#modal' . $data['buttons'][0]['PAGEID']; ?>>
                         <?php echo $data['buttons'][0]['BUTTONDESCRIPTION']; ?>
                     </button>
                 <?php endif?> 
 
+
+
+
         <!--Modal Testimonial-->
-                    <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modal6" aria-hidden="true">
+                    <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modal6" aria-hidden="true" 
+                    
+                    action="
+                    if($data['buttons'][0]['PAGEID'] == 9):?>
+                    <a href="<?php echo URLROOT . 'pages/index4/8'; ?>"><button type="button" class="btn btn-success btn-lg ">Contact</button></a>
+                <!--Button to activate Modals depending on page ID-->
+                <?php else:?>
+                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=<?php echo '#modal' . $data['buttons'][0]['PAGEID']; ?>>
+                        <?php echo $data['buttons'][0]['BUTTONDESCRIPTION']; ?>
+                    </button>
+                <?php endif?>" 
+                    method="POST">
+
+
+
+
+
+
+
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
