@@ -94,7 +94,7 @@
 //Controler - Temp 3 - News, Testimonials & About
         public function index3() {
 
-          $id = myTryParse(URLROOT);
+        $id = myTryParse(URLROOT);
           
         //From the Database
           $page = $this->controller->getPage($id);

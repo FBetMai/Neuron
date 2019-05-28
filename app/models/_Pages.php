@@ -45,7 +45,7 @@
 
         //Select Temp3 info from tbl_testimonial (neuron Database)
         public function getTestimonial($id) {
-          $this->db->query('SELECT * FROM tbl_testimonial WHERE TESTIMONIALID = :id');
+          $this->db->query('SELECT * FROM tbl_testimonial WHERE PAGEID = :id');
           $this->db->bind(":id", $id);
           return $this->db->resultSet();
         }

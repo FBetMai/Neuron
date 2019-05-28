@@ -156,7 +156,7 @@
         <hr class="my-4">
     </div>
 
-<!--ROW 1 - 1 row 3 col-->
+<!--Content - 3 col per row/ 2 row per page-->
 <div class="container">   
     <div class="row d-flex flex-row">
 
