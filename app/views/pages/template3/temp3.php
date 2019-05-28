@@ -24,42 +24,22 @@
                         <span>&nbsp;</span>
                     </div>
 
-        <!--Button Contact link OR Testimonal / Subscribe Modals-->
+        <!--Coditional to activate the correct button function - Contact link OR Testimonal / Subscribe Modals-->
            <div class="col-lg-2 col-md-4 col-sm-4">
                 <?php
-                //Contact link
+                //Contact link - Page About - PAGEID = 9
                 if($data['buttons'][0]['PAGEID'] == 9):?>
                     <a href="<?php echo URLROOT . 'pages/index4/8'; ?>"><button type="button" class="btn btn-success btn-lg ">Contact</button></a>
-                <!--Button to activate Modals depending on page ID-->
+                <!--Button to activate Modals depending on page PAGEID-->
                 <?php else:?>
                     <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=<?php echo '#modal' . $data['buttons'][0]['PAGEID']; ?>>
                         <?php echo $data['buttons'][0]['BUTTONDESCRIPTION']; ?>
                     </button>
-                <?php endif?> 
-
-
+                <?php endif?>
 
 
         <!--Modal Testimonial-->
-                    <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modal6" aria-hidden="true" 
-                    
-                    action="
-                    if($data['buttons'][0]['PAGEID'] == 9):?>
-                    <a href="<?php echo URLROOT . 'pages/index4/8'; ?>"><button type="button" class="btn btn-success btn-lg ">Contact</button></a>
-                <!--Button to activate Modals depending on page ID-->
-                <?php else:?>
-                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=<?php echo '#modal' . $data['buttons'][0]['PAGEID']; ?>>
-                        <?php echo $data['buttons'][0]['BUTTONDESCRIPTION']; ?>
-                    </button>
-                <?php endif?>" 
-                    method="POST">
-
-
-
-
-
-
-
+                    <div class="modal fade" id="leave" tabindex="-1" role="dialog" aria-labelledby="leave" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -69,26 +49,27 @@
                                     </button>
                                 </div>
                                 <!--Form (Modal)-->
-                                <div class="modal-body">                                
+                                <div class="modal-body">
+                                <form action="Testimonials/addData.php" method="POST">                                
                                     <!--Name-->
                                     <div class="form-group">
                                         <label for="name">Name*</label>
-                                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter full name">
+                                        <input type="text" class="form-control" id="name" aria-describedby="clientName" placeholder="Enter full name">
                                     </div>
                                     <!--Company Name-->
                                     <div class="form-group">
                                         <label for="companyName">Company name*</label>
-                                        <input type="text" class="form-control" id="companyName" aria-describedby="emailHelp" placeholder="Enter company name">
+                                        <input type="text" class="form-control" id="companyName" aria-describedby="companyName" placeholder="Enter company name">
                                     </div>
                                     <!--Company Website-->
                                     <div class="form-group">
                                         <label for="companyWeb">Company website*</label>
-                                        <input type="text" class="form-control" id="companyWeb" aria-describedby="emailHelp" placeholder="Enter company website">
+                                        <input type="text" class="form-control" id="companyWeb" aria-describedby="clientWebsite" placeholder="Enter company website">
                                     </div>       
                                     <!--Email-->            
                                     <div class="form-group">
                                         <label for="Address">Email address*</label>
-                                        <input type="email" class="form-control" id="Address" aria-describedby="emailHelp" placeholder="Enter email">
+                                        <input type="email" class="form-control" id="Address" aria-describedby="clientEmail" placeholder="Enter email">
                                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
                                     <!--Text Area-->
@@ -97,7 +78,7 @@
                                         <small class="form-text text-muted">(maximum 310 characteres)</small>
                                         <textarea class="form-control" id="testimonial" rows="10" maxlength="310"></textarea>
                                     </div>
-                                    <!--Agreement to share-->
+<!--How to setup it?-->             <!--Agreement to share-->
                                     <fieldset class="form-group">
                                         <div class="form-check">
                                             <label class="form-check-label">
@@ -108,7 +89,7 @@
                                     </fieldset>
                                     <!--Submit Button-->
                                     <fieldset class="form-group">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary" name="SubmitForm">Submit</button>
                                     </fieldset>
                                     <!--Terms and conditions-->
                                     <div class="form-group">
@@ -136,7 +117,7 @@
                                 </div>
                                 <div class="modal-body">
                                 <!--Form (Modal)-->
-                                    <form>
+                                <form action="Subscribe/addData.php" method="POST">
                                         <div class="form-group ">
                                             <label for="name">Name</label>
                                             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
