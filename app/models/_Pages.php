@@ -45,22 +45,34 @@
 
         //Select Temp3 info from tbl_testimonial (neuron Database)
         public function getTestimonial($id) {
-          $this->db->query('SELECT T.TESTIMONIALID, T.PAGEID, T.ISIMAGE, T.MEDIAPATH, C.CLIENTNAME AS TITLE, C.COMPANYNAME AS SUBTITLE, T.TEXTDESCRIPTION FROM tbl_testimonial T JOIN tbl_client C on T.CLIENTID = C.CLIENTID WHERE PAGEID = :id LIMIT 6 '); //ORDER BY T.TESTIMONIALID DESC
+          $this->db->query('SELECT T.TESTIMONIALID, T.PAGEID, T.ISIMAGE, T.MEDIAPATH, C.CLIENTNAME AS TITLE, C.COMPANYNAME AS SUBTITLE, T.TEXTDESCRIPTION FROM tbl_testimonial T JOIN tbl_client C on T.CLIENTID = C.CLIENTID WHERE PAGEID = :id AND T.APPROVED = 1 ORDER BY T.CREATEDDATE DESC LIMIT 6 '); // 
           $this->db->bind(":id", $id);
           return $this->db->resultSet();
         }
 
         //Select Temp3 info from tbl_news (neuron Database)
         public function getNews($id) {
-          $this->db->query('SELECT * FROM tbl_news WHERE PAGEID = :id');
+          $this->db->query('SELECT * FROM tbl_news WHERE PAGEID = :id LIMIT 6 ');
           $this->db->bind(":id", $id);
           return $this->db->resultSet();
         }
 
         //Select Temp3 info from tbl_about (neuron Database)
         public function getAbout($id) {
-          $this->db->query('SELECT * FROM tbl_about WHERE PAGEID = :id');
+          $this->db->query('SELECT * FROM tbl_about WHERE PAGEID = :id LIMIT 3 ');
           $this->db->bind(":id", $id);
+          return $this->db->resultSet();
+        }
+
+        //Select Temp4 info from tbl_country (neuron Database)
+        public function getCountries() {
+          $this->db->query('SELECT * FROM tbl_country');
+          return $this->db->resultSet();
+        }
+
+        //Select Temp4 info from tbl_subject (neuron Database)
+        public function getSubject() {
+          $this->db->query('SELECT * FROM tbl_subject');
           return $this->db->resultSet();
         }
 

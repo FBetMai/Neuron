@@ -127,11 +127,7 @@
 
 
 
-
-
-
-
-//Controler - Temp 3 - News, Testimonials & About
+//Controler - Temp 4 - Contact
       public function index4() {
 
         $id = myTryParse(URLROOT);
@@ -142,6 +138,8 @@
         $text = $this->controller->getText($id);
         $media = $this->controller->getMedia($id);
         $buttons = $this->controller->getbuttons($id);
+        $countries = $this->controller->getCountries();
+        $subject = $this->controller->getSubject();
       
         //Hard Coded
         $links = $this->controller->getNavLinks();
@@ -152,7 +150,9 @@
             'text' => $text,
             'media' => $media,
             'buttons' => $buttons,
-            'links' => $links
+            'links' => $links,
+            'countries'=>$countries,
+            'subject'=>$subject
         ];    
         $this->view('pages/template4/contact', $data);
       }

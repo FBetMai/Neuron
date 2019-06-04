@@ -94,7 +94,7 @@
                                     <!--Terms and conditions-->
                                     <div class="form-group">
                                         <div>&nbsp;</div> 
-                                        <p>*** By submitting this form, you accept the <a href="policy.html">Terms and Conditions</a></p>                                     
+                                        <p>*** By submitting this form, you accept the <a href="<?php echo URLROOT . 'pages/index2a/10'; ?>">Terms and Conditions</a></p>                                     
                                     </div>
                                     <div class="modal-footer">    
                                     </div>
@@ -158,6 +158,9 @@
     </div>
 
 <!--Content - 3 col per row/ 2 row per page-->
+
+<!--  NOTICE: TESTIMONIALS WILL BE APPROVED BY STATING THE WANTED "TESTIMONIALID" IN THE "Moderate APPROVED Testimonials" sql file.     -->
+
 <div class="container">   
     <div class="row d-flex flex-row">
 

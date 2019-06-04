@@ -25,26 +25,24 @@
 
             var_dump($checkClientExists);
 
+            $this->db->query('INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTWEBSITE, CLIENTEMAIL) VALUES (:clientName, :companyName, :clientWebsite, :clientEmail)');
 
 
-
-
-
-//             $this->db->query('INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTWEBSITE, CLIENTEMAIL) VALUES (:clientName, :companyName, :clientWebsite, :clientEmail)');
+            
                 
-// //*** IF THEY ARE ALREADY CLIENT, UPDATE THE tbl-client (CLIENTNEW) TO 0, WHOSE BOLLEAN IS SET AS DEFAULT = 1.
+//*** IF THEY ARE ALREADY CLIENT, UPDATE THE tbl-client (CLIENTNEW) TO 0, WHOSE BOLLEAN IS SET AS DEFAULT = 1.
 //             $this->db->query('UPDATE tbl_client SET CLIENTNEW = 0 WHERE ');    
 
-//             $this->db->bind(':clientName', $clientName);
-//             $this->db->bind(':companyName', $companyName);
-//             $this->db->bind(':clientWebsite', $clientWebsite);
-//             $this->db->bind(':clientEmail', $clientEmail);    //NOT NULL
-                            
-//             if($this->db->execute()) {
-//                 return true;
-//             } else {
-//                 return false;
-//             }        
+            $this->db->bind(':clientName', $clientName);
+             $this->db->bind(':companyName', $companyName);
+            $this->db->bind(':clientWebsite', $clientWebsite);
+            $this->db->bind(':clientEmail', $clientEmail);    //NOT NULL
+
+             if($this->db->execute()) {
+                 return true;
+             } else {
+                 return false;
+             }        
         }
 
         //ADD TESTIMONIALS into tbl_testimonial (neuron Database)
