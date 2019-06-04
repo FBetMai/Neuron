@@ -71,12 +71,12 @@ PRIMARY KEY (CLIENTID)
 DROP TABLE IF EXISTS tbl_testimonial;
 CREATE TABLE tbl_testimonial (
 TESTIMONIALID INT (10) NOT NULL AUTO_INCREMENT,
-PAGEID INT(5) NOT NULL,
-ISIMAGE BOOLEAN NOT NULL,
-MEDIAPATH VARCHAR(5000) NOT NULL,
+PAGEID INT(5) DEFAULT 6,
+ISIMAGE BOOLEAN DEFAULT 1,
+MEDIAPATH VARCHAR(5000)  DEFAULT '/img/S2.jpg',
 CLIENTID INT(10) NOT NULL,
 TEXTDESCRIPTION VARCHAR(5000),
-CREATEDDATE DATE NOT NULL,
+CREATEDDATE DATETIME NOT NULL DEFAULT NOW(),
 APPROVED BOOLEAN DEFAULT 0,
 PRIMARY KEY (TESTIMONIALID)	
 ) AUTO_INCREMENT=1;
@@ -566,11 +566,13 @@ INSERT INTO tbl_about (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPT
 
 
 /*Testimonial Table*/
-INSERT INTO tbl_testimonial (PAGEID, ISIMAGE, MEDIAPATH, CLIENTID, TEXTDESCRIPTION, CREATEDDATE) VALUES (6, 1, '/img/S2.jpg', 0, 'Testimonial 1', NOW())   *******atencao para O approved*/
+INSERT INTO tbl_testimonial (CLIENTID, TEXTDESCRIPTION, CREATEDDATE) 
+VALUES (1, 'Testimonial 1 - Necessitatibus maxime! Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore accusantium totam modi vero error, necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus maxime! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit excepturi iusto eveniet, distinctio animi enim quo aperiam magnam temporibus molestias qui, tempore', NOW());
+
+
+/*Client Table*/
+INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTWEBSITE, CLIENTEMAIL, CLIENTADRESS, COUNTRYID, CLIENTPHONENUMBER) VALUES ("Name1", "Company1", "123.co.nz", "1234@email.com", "Tauranga", "NZ", "123456");
 
 /*Contact Table*/
 /*INSERT INTO tbl_contact (CLIENTID, SUBJECTID, CONTACTDESCRIPTION, CONTACTDATE) VALUES ("", "", "", NOW());
-
-/*Client Table*/
-/*INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTEMAIL, CLIENTWEBSITE, CLIENTADRESS, COUNTRYID, CLIENTPHONENUMBER, CLIENTNEW, CLIENTSUBSCRIBE) VALUES (" ", " ", " ", " ", " ", " ", " ", " ", " ");*/
 

@@ -39,7 +39,7 @@
 
 
         <!--Modal Testimonial-->
-                    <div class="modal fade" id="leave" tabindex="-1" role="dialog" aria-labelledby="leave" aria-hidden="true">
+                    <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modal6" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -50,33 +50,33 @@
                                 </div>
                                 <!--Form (Modal)-->
                                 <div class="modal-body">
-                                <form action="Testimonials/addData.php" method="POST">                                
+                                <form action="/Testimonial/addData" method="POST">                                
                                     <!--Name-->
                                     <div class="form-group">
                                         <label for="name">Name*</label>
-                                        <input type="text" class="form-control" id="name" aria-describedby="clientName" placeholder="Enter full name">
+                                        <input type="text" class="form-control" id="name" name="clientName" aria-describedby="clientName" placeholder="Enter full name">
                                     </div>
                                     <!--Company Name-->
                                     <div class="form-group">
                                         <label for="companyName">Company name*</label>
-                                        <input type="text" class="form-control" id="companyName" aria-describedby="companyName" placeholder="Enter company name">
+                                        <input type="text" class="form-control" id="companyName" name="companyName" aria-describedby="companyName" placeholder="Enter company name">
                                     </div>
                                     <!--Company Website-->
                                     <div class="form-group">
                                         <label for="companyWeb">Company website*</label>
-                                        <input type="text" class="form-control" id="companyWeb" aria-describedby="clientWebsite" placeholder="Enter company website">
+                                        <input type="text" class="form-control" id="companyWeb" name="clientWebsite" aria-describedby="clientWebsite" placeholder="Enter company website">
                                     </div>       
                                     <!--Email-->            
                                     <div class="form-group">
                                         <label for="Address">Email address*</label>
-                                        <input type="email" class="form-control" id="Address" aria-describedby="clientEmail" placeholder="Enter email">
+                                        <input type="email" class="form-control" id="Address" name="clientEmail" aria-describedby="clientEmail" placeholder="Enter email">
                                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
                                     <!--Text Area-->
                                     <div class="form-group">
                                         <label for="testimonial">Your Testimonial</label>
                                         <small class="form-text text-muted">(maximum 310 characteres)</small>
-                                        <textarea class="form-control" id="testimonial" rows="10" maxlength="310"></textarea>
+                                        <textarea class="form-control" id="testimonial" name="textDescription" rows="10" maxlength="310"></textarea>
                                     </div>
 <!--How to setup it?-->             <!--Agreement to share-->
                                     <fieldset class="form-group">
@@ -98,6 +98,7 @@
                                     </div>
                                     <div class="modal-footer">    
                                     </div>
+                                    </form>
                                 </div>                                        
                             </div>
                         </div>
@@ -117,7 +118,7 @@
                                 </div>
                                 <div class="modal-body">
                                 <!--Form (Modal)-->
-                                <form action="Subscribe/addData.php" method="POST">
+                                <form action="Subscribe/addData" method="POST">
                                         <div class="form-group ">
                                             <label for="name">Name</label>
                                             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">

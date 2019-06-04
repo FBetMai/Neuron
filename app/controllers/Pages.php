@@ -107,8 +107,7 @@
               case 7:  $template3 = $this->controller->getNews($id); break;
               case 9:  $template3 = $this->controller->getAbout($id); break;
               default: break;
-          }
-            
+          }            
         //Hard Coded
           $links = $this->controller->getNavLinks();
   

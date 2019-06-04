@@ -58,7 +58,7 @@
                         ?>  
                             <p class="lead"></p>
             </div>
-        </Section>
+            </Section>
         <!--Contact Link-->
         <section class="container">
                 <span>&nbsp;</span> 
@@ -68,7 +68,7 @@
                             <h5 class="text-center font-italic"><?php echo $data['text'][3]['TEXTDESCRIPTION']; ?></h5>
                         </div>
                         <div class="col-lg col-md col-sm">
-                            <a href="contact.html"><button type="button" class="btn btn-success btn-lg float-right">Contact</button></a>
+                            <a href="<?php echo URLROOT . 'pages/index4/8'; ?><button type="button" class="btn btn-success btn-lg float-right">Contact</button></a>
                         </div>
                     </Section>
                     <hr class="my-4">
