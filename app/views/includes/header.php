@@ -7,8 +7,9 @@
     <meta name="description" content="Data and Machine Learning Services">
     <meta name="keywords" content="business intelligence, buiness analysis, data analysis. machine learning, data aquisition, data preparation, data transformations, EDA, exploratory data analysis, data modeling, authomation, data visualization, dashboard, data communications, machine learning models, performance, KPI, efficiency, data mining, assited model, unasisted model, deep learning, decision tree, KNN, naive bayers">
     <meta name="author" content="Fernanda Bettega Mairesse">
-
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 
 
 
