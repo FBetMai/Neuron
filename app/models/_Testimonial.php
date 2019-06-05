@@ -21,20 +21,14 @@
         //ADD CLIENT into tbl_client (neuron Database)
         public function addClient($clientName, $companyName, $clientWebsite, $clientEmail) {
 
-            $checkClientExists = $this->getClientEmail($clientEmail);
+            //*** IF THEY ARE ALREADY A CLIENT, UPDATE THE tbl-client (CLIENTNEW) TO 0 (whose boolean is set as default = 1) AND DO NOT DOUBLE THEIR DATA .
 
+            $checkClientExists = $this->getClientEmail($clientEmail);
             var_dump($checkClientExists);
 
             $this->db->query('INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTWEBSITE, CLIENTEMAIL) VALUES (:clientName, :companyName, :clientWebsite, :clientEmail)');
-
-
-            
-                
-//*** IF THEY ARE ALREADY CLIENT, UPDATE THE tbl-client (CLIENTNEW) TO 0, WHOSE BOLLEAN IS SET AS DEFAULT = 1.
-//             $this->db->query('UPDATE tbl_client SET CLIENTNEW = 0 WHERE ');    
-
             $this->db->bind(':clientName', $clientName);
-             $this->db->bind(':companyName', $companyName);
+            $this->db->bind(':companyName', $companyName);
             $this->db->bind(':clientWebsite', $clientWebsite);
             $this->db->bind(':clientEmail', $clientEmail);    //NOT NULL
 
@@ -57,16 +51,6 @@
                 return false;
             }        
         }
-
-
-
-
-
-
-
-
-
-
 
 
 

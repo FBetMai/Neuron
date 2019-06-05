@@ -10,9 +10,6 @@ class Testimonial extends Controller {
     }
 
     //INSERT DATA in the Database
-        // How to setup the Agreement to share option
-        //Check issets
-
     public function addData() {
             //tbl_client
         $_POST['clientName'];
@@ -30,27 +27,21 @@ class Testimonial extends Controller {
                 $this->controller->addClient($_POST['clientName'], $_POST['companyName'], $_POST['clientWebsite'], $_POST['clientEmail']);
                 $client = $this->controller->getClientEmail($_POST['clientEmail']);
             }
-                $this->controller->addTestimonial(intval($client[0]['CLIENTID']), $_POST['textDescription']);
-
-            //if($this->controller->addDataToTheDataBase($_POST['clientName'], $_POST['companyName'], $_POST['clientWebsite'], $_POST['clientEmail'], $_POST['textDescription'])) {
-                //echo "Thank you for taking the time to send us this message. It will be posted shortly after approval.";
-
-                header("Location: /pages/index3/6");
+                $this->controller->addTestimonial(intval($client[0]['CLIENTID']), $_POST['textDescription']);               
+                include(APPROOT . "/views/includes/header.php");
+                echo
+                "<div class=\"container\"><p></p>
+                </div><div class=\"alert alert-dismissible alert-success\">                
+                <strong>Thank you for your testimonial. It will be posted shortly. </strong> <a href=\"/pages/index3/6\" class=\"alert-link\"> Go back to the Testimonial page</a>.
+                </div></div>";
                 exit;
-            //} else {
-              //  echo "Something went wrong. Please, check the fields above.";
-            //}
         } else {
-            echo "Something went wrong. Please, check the fields above.";
+            include(APPROOT . "/views/includes/header.php");
+            echo
+                "<div class=\"container\"><p></p>
+                </div><div class=\"alert alert-dismissible alert-secondary\">                
+                <strong>Something went wrong. </strong> <a href=\"/pages/index3/6\" class=\"alert-link\"> Please, go back to the Testimonial page</a> and try submitting again.
+                </div></div>";
         }
     }
-
-    
-    
-
-//How to deal with these buttons here in the if statement and in the model       
-//echo isset($_POST['optionsRadios']); //Agreement to share option
-//echo isset($_POST['SubmitForm']); //button
- 
-
 }

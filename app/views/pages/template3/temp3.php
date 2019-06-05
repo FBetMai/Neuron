@@ -78,7 +78,7 @@
                                         <small class="form-text text-muted">(maximum 310 characteres)</small>
                                         <textarea class="form-control" id="testimonial" name="textDescription" rows="10" maxlength="310"></textarea>
                                     </div>
-<!--How to setup it?-->             <!--Agreement to share-->
+                                     <!--Agreement to share-->
                                     <fieldset class="form-group">
                                         <div class="form-check">
                                             <label class="form-check-label">
@@ -94,7 +94,7 @@
                                     <!--Terms and conditions-->
                                     <div class="form-group">
                                         <div>&nbsp;</div> 
-                                        <p>*** By submitting this form, you accept the <a href="<?php echo URLROOT . 'pages/index2a/10'; ?>">Terms and Conditions</a></p>                                     
+                                        <p>*** By submitting this form, you accept the <a href="<?php echo URLROOT . 'pages/index2/10'; ?>">Terms and Conditions</a></p>                                     
                                     </div>
                                     <div class="modal-footer">    
                                     </div>
@@ -118,25 +118,26 @@
                                 </div>
                                 <div class="modal-body">
                                 <!--Form (Modal)-->
-                                <form action="Subscribe/addData" method="POST">
+                                <form action="/Subscribe/addData" method="POST">
                                         <div class="form-group ">
                                             <label for="name">Name</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+                                            <input type="text" class="form-control" id="exampleInputEmail1" name="clientName" aria-describedby="emailHelp" placeholder="Name">
                                         </div>
                                         <div class="form-group ">
                                             <label for="company name">Company Name</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Company Name">
+                                            <input type="text" class="form-control" id="exampleInputEmail1" name="companyName" aria-describedby="emailHelp" placeholder="Company Name">
                                         </div>
                                         <div class="form-group ">
                                             <label for="exampleInputEmail1">Email address*</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                            <input type="email" class="form-control" id="exampleInputEmail1" name="clientEmail" aria-describedby="emailHelp" placeholder="Enter email">
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                         </div>
-                                    </form>
-                                </div>
+                                    
+                                
                                 <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Confirm</button>
+                                <button type="submit" class="btn btn-primary" name="SubmitForm">Confirm</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div> 

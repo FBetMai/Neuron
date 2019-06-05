@@ -35,7 +35,7 @@
 
 <!--Column 2-->
     <div class="col-lg-10 col-md-8 col-sm-8">
-        <!--Service Image-->
+        <!--Image-->
         <section>
                 <div class="card" style="width: auto;">
                     <a href="#"></a><img  class="img-fluid" style="width: 100%; max-height: 500px" src=<?php echo $data['media'][$i]['MEDIAPATH']; ?> alt="Card image"></a>
@@ -45,9 +45,13 @@
         <!--Text-->
         <section class="container">
             <div class="jumbotron-primary">
-                <span6>&nbsp;</span6>                
+                <span>&nbsp;</span>                
                     <h3><?php echo $data['heading'][0]['HEADINGDESCRIPTION']; ?></h3>
                         <hr class="my-4">    
+
+                        <?php if($data['page'][0]['PAGEID']==10):?>  
+                        <p class="text-justify"><?php echo $data['text'][0]['TEXTDESCRIPTION']; ?></p>
+                        <?php else:?>
 
                         <?php for($i = 0; $i < count($data['text'])-1; $i++)
                          {
@@ -55,11 +59,15 @@
                             <p class="text-justify"><?php echo $data['text'][$i]['TEXTDESCRIPTION']; ?></p>
                         <?php
                         }
-                        ?>  
+                        ?> 
+                         <?php endif?> 
                             <p class="lead"></p>
             </div>
             </Section>
+        
+        
         <!--Contact Link-->
+        <?php if($data['page'][0]['PAGEID']<>10):?>   
         <section class="container">
                 <span>&nbsp;</span> 
                 <hr class="my-4">     
@@ -72,10 +80,11 @@
                         </div>
                     </Section>
                     <hr class="my-4">
-            <span6>&nbsp;</span6>
+            <span>&nbsp;</span>
         </section>
+        <?php endif?>
    
-<span6>&nbsp;</span6>
+<span>&nbsp;</span>
 </div>
 </div>
 </div>

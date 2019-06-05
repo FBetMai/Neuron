@@ -82,6 +82,20 @@
         public function getNavLinks() {
           return ["../index2/2", "../index2/3", "../index2/4", "../index2/5"];
       } 
-         
+
+      //Get Google Maps Key to Contact page (Index)
+        public function getKeyMaps() {
+          return ["https://maps.googleapis.com/maps/api/js?key=AIzaSyAk7ID4iZPTk7o08S1Oc2DJGL7ACqZ1Yz4&callback=initMap"];
+      } 
+
+      //Get Google Maps Key to Contact page(Index)
+        public function getKeySkype() {
+          return ["https://swc.cdn.skype.com/sdk/v1/sdk.min.js"];
+      } 
+
+          //Get Google Agenda Key to Contact page(Index)
+          public function getKeyAgenda() {
+            return ["https://calendar.google.com/calendar/embed?title=Neuron%20Events&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;height=600&amp;wkst=1&amp;hl=en&amp;bgcolor=%23ffffff&amp;src=d30cgmb84h3dmbvmfn35ukdpoo%40group.calendar.google.com&amp;color=%23875509&amp;ctz=Pacific%2FAuckland"];
+        } 
   }
 ?>

@@ -48,8 +48,8 @@ CREATE TABLE tbl_contact (
 CONTACTID INT(10) NOT NULL AUTO_INCREMENT,
 CLIENTID INT(10) NOT NULL,
 SUBJECTID VARCHAR(100),
-CONTACTDESCRIPTION VARCHAR(5000),
-CONTACTDATE DATE NOT NULL,
+TEXTDESCRIPTION VARCHAR(5000),
+CREATEDDATE DATETIME NOT NULL DEFAULT NOW(),
 PRIMARY KEY (CONTACTID)	
 ) AUTO_INCREMENT=1;
 
@@ -227,6 +227,10 @@ INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, '/img/S2.jpg')
 INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, '/img/S2.jpg');
 INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, '/img/S2.jpg');
 INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (6, 1, '/img/S2.jpg');
+
+/*News MEDIA*/
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (7, 1, '/img/Forbes.PNG');
+INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (7, 1, '/img/BD1.PNG');
 
 /*Contact*/
 INSERT INTO tbl_media (PAGEID, ISIMAGE, MEDIAPATH)	 VALUES (8, 1, '/img/ML3.PNG');
@@ -543,9 +547,9 @@ INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTI
     /*News - News 3*/
 INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 0, 'https://www.youtube.com/embed/YOEFogy9VSQ', 'Applications of AI in Business', 'Growth Tribe, 19/09/2018', 'Artificial Intelligence is a marketers secret weapon right now and most big opportunities have not yet been tapped. Now is the time to get ahead of the game. Predictive analysis to forecast products and Customer Lifetime Value.');
     /*News - News 4*/
-INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 1, 'https://www.forbes.com/sites/bernardmarr/2019/03/21/why-every-company-needs-an-artificial-intelligence-ai-strategy-for-2019/#5111ab4e68ea', 'Why Every Company Needs An Artificial Intelligence (AI) Strategy For 2019', 'Forbes, 21/03/2019', 'Why Every Company Needs An Artificial Intelligence (AI) Strategy For 2019. AI is ultimately going to transform every business, in every industry.');
+INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 0, 'https://www.forbes.com/sites/bernardmarr/2019/03/21/why-every-company-needs-an-artificial-intelligence-ai-strategy-for-2019/#5111ab4e68ea', 'Why Every Company Needs An Artificial Intelligence (AI) Strategy For 2019', 'Forbes, 21/03/2019', 'Why Every Company Needs An Artificial Intelligence (AI) Strategy For 2019. AI is ultimately going to transform every business, in every industry.');
     /*News - News 5*/
-INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 1, 'https://www.analyticsinsight.net/the-impact-of-big-data-on-different-industries/', 'The Impact of Big Data on Different Industries', 'Analytics Insight, 24/03/2019', 'Healthcare; Education; Telecom; Banking and Finance; Consumer Goods Industry.');
+INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 0, 'https://www.analyticsinsight.net/the-impact-of-big-data-on-different-industries/', 'The Impact of Big Data on Different Industries', 'Analytics Insight, 24/03/2019', 'Healthcare; Education; Telecom; Banking and Finance; Consumer Goods Industry.');
     /*News - News 6*/
 INSERT INTO tbl_news (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPTION) VALUES (7, 0, 'https://www.youtube.com/embed/eo4oQZdJAaQ', 'Big Data Business Impact', 'Oracle Big Data, 25/10/2015', 'Big Data allows businesses to do big things. Oracle provides leadership and solutions to business ready to maximize big data.');
 
@@ -566,13 +570,11 @@ INSERT INTO tbl_about (PAGEID, ISIMAGE, MEDIAPATH, TITLE, SUBTITLE, TEXTDESCRIPT
 
 
 /*Testimonial Table*/
-INSERT INTO tbl_testimonial (CLIENTID, TEXTDESCRIPTION, CREATEDDATE) 
-VALUES (1, 'Testimonial 1 - Your testimonial will be displayed here', NOW());
+INSERT INTO tbl_testimonial (CLIENTID, TEXTDESCRIPTION, CREATEDDATE, APPROVED) 
+VALUES (1, 'Testimonial 1 - Your testimonial will be displayed here', NOW(), 1);
 
 
 /*Client Table*/
 INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTWEBSITE, CLIENTEMAIL, CLIENTADRESS, COUNTRYID, CLIENTPHONENUMBER) VALUES ("Name1", "Company1", "123.co.nz", "1234@email.com", "Tauranga", "NZ", "123456");
 
-/*Contact Table*/
-/*INSERT INTO tbl_contact (CLIENTID, SUBJECTID, CONTACTDESCRIPTION, CONTACTDATE) VALUES ("", "", "", NOW());
 

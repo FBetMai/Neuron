@@ -75,9 +75,9 @@
                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                        <a class="dropdown-item" href="<?php echo URLROOT . 'pages/index3/9'; ?>">About us</a>
                                    <div class="dropdown-divider"></div>
-                                       <a class="dropdown-item" href="<?php echo URLROOT . 'pages/index2a/10'; ?>">Policy</a>
-                                   </div>
-                           </li>
+                                       <a class="dropdown-item" href="<?php echo URLROOT . 'pages/index2/10'; ?>">Policy</a>
+                                </div>
+                        </li>
                        </ul>
                    </div>
                </div> 

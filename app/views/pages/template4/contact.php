@@ -1,13 +1,6 @@
 <?php include(APPROOT . "/views/includes/header.php"); ?>
 
 
-<!--CHECK-->
-    <!--Google Maps API-->
-    <!--LinkedIn CHAT API-->
-    <!-- * Question - Google agenda???-->
-
-
-
 <!--Content of the page-->
 
 <span6>&nbsp;</span6>
@@ -81,7 +74,7 @@
 <!--Google calendar-->
 <div class="card mb-3">
     <h5 class="card-header text-center">Attend the next Neuron's Events</h5>    
-    <iframe src="https://calendar.google.com/calendar/embed?title=Neuron%20Events&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;height=600&amp;wkst=1&amp;hl=en&amp;bgcolor=%23ffffff&amp;src=d30cgmb84h3dmbvmfn35ukdpoo%40group.calendar.google.com&amp;color=%23875509&amp;ctz=Pacific%2FAuckland" style="min-height: 300px" frameborder="0" scrolling="no"></iframe>
+    <iframe src="<?php echo $data['agenda'][0]; ?>" style="min-height: 300px" frameborder="0" scrolling="no"></iframe>
 </div>
 
 
@@ -90,33 +83,29 @@
 <!--Skype API--> 
 <div class="skype-button bubble" data-bot-id="Neuron Chat"></div>
             </div><!--Fecha col 2a-->
-  
-    
-
-
-
-    <!--Form-->
+ 
+<!--Form-->
             <div class="col-lg-6 offset-lg-1 col-md-12 col-sm-12">
-                <form>
+                <form action="/Contact/addData" method="POST"> 
                     <!--Name-->
                     <div class="form-group">
                         <label for="exampleInputPassword1">Name*</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Name">
+                        <input type="text" class="form-control" id="name" name="clientName" placeholder="Name">
                     </div>      
                         <!--Company Name-->
                         <div class="form-group">
                             <label for="exampleInputPassword1">Company Name*</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Company name">
+                            <input type="text" class="form-control" id="company" name="companyName" placeholder="Company name">
                     </div>                              
                         <!--Company Adress-->
                         <div class="form-group">
                             <label for="exampleInputPassword1">Company Adress*</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Company Adress">
+                            <input type="text" class="form-control" id="address" name="companyAdress" placeholder="Company Adress">
                     </div>                             
                         <!--Country-->
                         <div class="form-group">
                         <label for="exampleSelect1">Country*</label>
-                            <select class="form-control" id="exampleSelect1" placeholder="Country">                                
+                            <select class="form-control" id="country" name="country" placeholder="Country">                                
                         <!--For loop for Coutries ( tbl_country )-->   
                         <?php for($i = 0; $i < count($data['countries']); $i++)
                                 {
@@ -130,18 +119,18 @@
                     <!--Email-->            
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address*</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="clientEmail" aria-describedby="emailHelp" placeholder="email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <!--Phone Number-->
                     <div class="form-group">
                         <label for="exampleInputPassword1">Phone Number</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Phone number">
+                        <input type="text" class="form-control" id="exampleInputPassword1" name="phoneNumber" placeholder="Phone number">
                         </div>
                     <!--Subject-->
                         <div class="form-group">
                         <label for="exampleSelect1">Subject</label>
-                            <select class="form-control" id="exampleSelect1" placeholder="Country">
+                            <select class="form-control" id="exampleSelect1" name="subjectID" placeholder="Subject">
                                 <!--For loop for Coutries ( tbl_country )-->   
                         <?php for($i = 0; $i < count($data['subject']); $i++)
                                 {
@@ -155,13 +144,18 @@
                     <!--Text Area-->
                     <div class="form-group">
                         <label for="exampleTextarea">Message</label>
-                        <textarea class="form-control" id="exampleTextarea" rows="10"></textarea>
+                        <textarea class="form-control" id="exampleTextarea" name="textDescription" rows="10"></textarea>
                     </div>
                     <!--Submit Button-->
                     </fieldset>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="submitForm">Submit</button>
                     </fieldset>
                 </form>
+                <?php if(count($_POST)>0)
+ echo "Thank you for your message. We will get in touch shortly.";
+ ?>
+
+
                 </div>
             </div><!--Fecha col 2b-->
         </div><!--Fecha rom-->
@@ -172,12 +166,6 @@
 </div><!--Fecha row da pagina-->
 </div><!--Fecha container da pagina-->  
 
-
-<!--JavaScript -->  
-    <!--Bootstrap  -->   
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!--Google Maps API -->  
             <script>
@@ -190,10 +178,10 @@
                     });
                 }
             </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk7ID4iZPTk7o08S1Oc2DJGL7ACqZ1Yz4&callback=initMap" async defer></script>
+            <script src="<?php echo $data['maps'][0]; ?>" async defer></script>
 
     <!--Skype API -->
-            <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script>
+            <script src="<?php echo $data['skype'][0]; ?>"></script>
 
     </body>
     </html>

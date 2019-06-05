@@ -9,98 +9,49 @@
         $this->db = new Database;
     }
 
+    //client VALIDATION by client email
+    public function getClientEmail($clientEmail) {
+        $this->db->query('SELECT * FROM tbl_client WHERE CLIENTEMAIL = :clientEmail');
+        $this->db->bind(":clientEmail", $clientEmail);
+        return $this->db->resultSet();
+    }
+
     //INSERT QUERIES
 
-        //ADD CONTACT to tbl_contact (neuron Database)       
-        public function addContact($clientID, $subjectID, $contactDesc, $contatcDate) {
-            $this->db->query('INSERT INTO tbl_contact (CLIENTID, SUBJECTID, CONTACTDESCRIPTION, CONTACTDATE) VALUES (:clientID, :subjectID,:contactDesc, :contatcDate)');
-            $this->db->bind(':clientID', $clientID);
-            $this->db->bind(':subjectID', $subjectID);
-            $this->db->bind(':contactDesc', $contactDesc);
-            $this->db->bind(':contatcDate', $contatcDate);
-            if($this->db->execute()) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        //ADD CLIENT into tbl_client (neuron Database)
+        public function addClient($clientName, $companyName, $companyAdress, $country, $clientEmail, $phoneNumber) {
 
+//*** IF THEY ARE ALREADY A CLIENT, UPDATE THE tbl-client (CLIENTNEW) TO 0 (whose boolean is set as default = 1) AND DO NOT DOUBLE THEIR DATA .
+            $checkClientExists = $this->getClientEmail($clientEmail);
+            var_dump($checkClientExists);
 
-
-    //SELECT QUERIES
-
-        //SHOW CONTACT from tbl_contact (neuron Database)
-        public function showAllContact() {
-            $this->db->query('SELECT * FROM tbl_contact');
-            return $this->db->resultSet();
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //ADD CLIENT to tbl_client (neuron Database)       
-        public function addClient($clientName, $companyName, $clientEmail, $clientWebsite, $clientAdress, $countryID, $clientPhoneNumber, $clientNew, $clientSubscribe) {
-            $this->db->query('INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTEMAIL, CLIENTWEBSITE, CLIENTADRESS, COUNTRYID, CLIENTPHONENUMBER, CLIENTNEW, CLIENTSUBSCRIBE) VALUES (:clientName, :companyName, :clientEmail, :clientWebsite, :clientAdress, :countryID, :clientPhoneNumber, :clientNew, :clientSubscribe)');
+            $this->db->query('INSERT INTO tbl_client (CLIENTNAME, COMPANYNAME, CLIENTADRESS, COUNTRYID, CLIENTEMAIL, CLIENTPHONENUMBER) VALUES (:clientName,:companyName, :companyAdress, :country, :clientEmail, :phoneNumber)');
             $this->db->bind(':clientName', $clientName);
             $this->db->bind(':companyName', $companyName);
-            $this->db->bind(':clientEmail', $clientEmail);
-            $this->db->bind(':clientWebsite', $clientWebsite);
-            $this->db->bind(':clientAdress', $clientAdress);
-            $this->db->bind(':countryID', $countryID);
-            $this->db->bind(':clientPhoneNumber', $clientPhoneNumber);
-            $this->db->bind(':clientNew', $clientNew);
-            $this->db->bind(':clientSubscribe', $clientSubscribe);
-            if($this->db->execute()) {
-                return true;
-            } else {
-                return false;
-            }
+            $this->db->bind(':companyAdress', $companyAdress);
+            $this->db->bind(':country', $country);
+            $this->db->bind(':clientEmail', $clientEmail);    //NOT NULL
+            $this->db->bind(':phoneNumber', $phoneNumber);
+
+             if($this->db->execute()) {
+                 return true;
+             } else {
+                 return false;
+             }        
         }
 
-
-
-
-        //ADD TESTIMONIAL to tbl_testimonial (neuron Database)       
-        public function addTestimonial($clientID, $textDescription, $createdDate, $approved) {
-            $this->db->query('INSERT INTO tbl_testimonial (CLIENTID, TEXTDESCRIPTION, CREATEDDATE, APPROVED) VALUES (:clientID, :textDescription, :createdDate, :approved)');
+        //ADD CONTACT into tbl_CONTACT (neuron Database)
+        public function addContact($clientID, $subjectID, $textDescription) {
+            $this->db->query('INSERT INTO tbl_contact (CLIENTID, SUBJECTID, TEXTDESCRIPTION) VALUES (:clientID, :subjectID, :textDescription)');
             $this->db->bind(':clientID', $clientID);
-            $this->db->bind(':textDescription', $textDescription);
-            $this->db->bind(':createdDate', $createdDate);
-            $this->db->bind(':approved', $approved);
+            $this->db->bind(':subjectID', $subjectID); 
+            $this->db->bind(':textDescription', $textDescription);         
+            
             if($this->db->execute()) {
                 return true;
             } else {
                 return false;
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }        
+        }        
+     
 }

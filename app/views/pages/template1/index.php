@@ -1,8 +1,5 @@
 <?php include(APPROOT . "/views/includes/header.php"); ?>
 
-<!--CHECK-->
-
-
 <!--Empty space-->
 <div class="row d-flex flex-row">
     <div class="col-lg col-md order-md col-sm order-sm">
