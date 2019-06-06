@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <aside class="col-lg-2 col-md-3 col-sm-4">
-                <div class="card text-white bg-dark mb-1">
+                <div class="card text-white bg-dark mb-1 poster-images">
                     <div class="card-body">
                         <h5 class="card-title text-center">Our Services</h5>
                     </div>
@@ -19,7 +19,7 @@
                     {
                         ?>
                             <div class="col-lg col-md-12 order-md col-sm">
-                                <div class="card" style="width: auto;">
+                                <div class="card poster-images" style="width: auto;">
                                         <a href="<?php echo $data['links'][$i]; ?>"><img  class="img-fluid poster-images" src=<?php echo $data['media'][$i]['MEDIAPATH']; ?> alt="Card image"></a>
                                     <div class="card">
                                         <a href="<?php echo $data['links'][$i]; ?>" class="btn btn-outline-success btn-block" role="button"><?php echo $data['buttons'][$i]['BUTTONDESCRIPTION']; ?></a>
